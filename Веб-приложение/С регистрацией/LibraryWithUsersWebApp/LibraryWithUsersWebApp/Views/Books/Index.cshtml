@@ -1,0 +1,103 @@
+﻿@model BookViewModelList
+
+@{
+    ViewData["Title"] = "Книги";
+}
+
+<div center>
+    <h1>Книги</h1>
+
+    @if (Model.Items.Any())
+    {
+        <form method="get" align="center">
+            <div class="form-group" style="display:inline-block;">
+                <label>Название:</label>
+                <input style="width:200px;" name="name" value="@Model.FilterViewModel.Title" class="form-control" />
+                <input type="submit" value="Найти" class="btn btn-success" />
+            </div>
+        </form>
+    }
+
+    <br /> <a asp-controller="Books" asp-action="Create" class="btn btn-success">Создать запись</a>
+</div>
+
+<br />
+<table center>
+    @if (Model.Items.Any())
+    {
+        <tr>
+            <th>Название</th>
+            <th style="width:500px;">Описание</th>
+            <th>Автор</th>
+            <th>Год издания</th>
+            <th style="width:500px;">Оглавление</th>
+            <th>Цена</th>
+            <th></th>
+        </tr>
+    }
+    @{
+        foreach (var book in Model.Items)
+        {
+            <tr>
+                <td>@book.Title</td>
+                <td style="width:500px;text-align:justify;">@book.Description</td>
+                <td>@book.Author</td>
+                <td>@book.Year</td>
+                <td style="width:500px;text-align:justify;">@book.Content</td>
+                <td>@book.Price</td>
+                <td>
+                    <a asp-controller="Books" asp-action="Update" asp-route-id="@book.Id" class="btn btn-outline-dark">Редактировать</a>
+                    <br /><br /><a class="btn btn-danger deleteButton" data-id="@book.Id">Удалить</a>
+                </td>
+            </tr>
+        }
+    }
+</table>
+
+<br />
+<div class="buttons" center>
+    @if (Model.PageViewModel.HasPreviousPage)
+    {
+        <a asp-action="Index"
+           asp-route-pageNumber="@(Model.PageViewModel.PageNumber - 1)"
+           class="btn  btn-outline-dark">
+            Назад
+        </a>
+    }
+    @if (Model.PageViewModel.HasNextPage)
+    {
+        <a asp-action="Index"
+           asp-route-pageNumber="@(Model.PageViewModel.PageNumber + 1)"
+           class="btn btn-outline-dark">
+            Вперед
+        </a>
+    }
+</div>
+
+<style>
+    th {
+        background-color: deepskyblue;
+    }
+
+    td {
+        background-color: aliceblue;
+    }
+
+    th, td {
+        width: 400px;
+        border: 3px solid black;
+        text-align: center;
+    }
+
+    .form-control {
+        display: inline;
+    }
+
+    .form-group {
+        text-align: center;
+    }
+</style>
+
+@section Scripts {
+    <script src="~/js/books.js"></script>
+}

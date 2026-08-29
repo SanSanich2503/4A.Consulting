@@ -1,0 +1,29 @@
+C:\Users\user\Desktop\Тестовые задания\Клеверенс Софт\Тестовое задание\LibraryWithUsersWebApp\Core\bin\Debug\net10.0\Core.deps.json
+C:\Users\user\Desktop\Тестовые задания\Клеверенс Софт\Тестовое задание\LibraryWithUsersWebApp\Core\bin\Debug\net10.0\Core.dll
+C:\Users\user\Desktop\Тестовые задания\Клеверенс Софт\Тестовое задание\LibraryWithUsersWebApp\Core\bin\Debug\net10.0\Core.pdb
+C:\Users\user\Desktop\Тестовые задания\Клеверенс Софт\Тестовое задание\LibraryWithUsersWebApp\Core\obj\Debug\net10.0\Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user\Desktop\Тестовые задания\Клеверенс Софт\Тестовое задание\LibraryWithUsersWebApp\Core\obj\Debug\net10.0\Core.AssemblyInfoInputs.cache
+C:\Users\user\Desktop\Тестовые задания\Клеверенс Софт\Тестовое задание\LibraryWithUsersWebApp\Core\obj\Debug\net10.0\Core.AssemblyInfo.cs
+C:\Users\user\Desktop\Тестовые задания\Клеверенс Софт\Тестовое задание\LibraryWithUsersWebApp\Core\obj\Debug\net10.0\Core.csproj.CoreCompileInputs.cache
+C:\Users\user\Desktop\Тестовые задания\Клеверенс Софт\Тестовое задание\LibraryWithUsersWebApp\Core\obj\Debug\net10.0\Core.dll
+C:\Users\user\Desktop\Тестовые задания\Клеверенс Софт\Тестовое задание\LibraryWithUsersWebApp\Core\obj\Debug\net10.0\refint\Core.dll
+C:\Users\user\Desktop\Тестовые задания\Клеверенс Софт\Тестовое задание\LibraryWithUsersWebApp\Core\obj\Debug\net10.0\Core.pdb
+C:\Users\user\Desktop\Тестовые задания\Клеверенс Софт\Тестовое задание\LibraryWithUsersWebApp\Core\obj\Debug\net10.0\ref\Core.dll
+C:\Users\user\Desktop\4A.Consulting\Веб-приложение\С регистрацией\LibraryWithUsersWebApp\Core\bin\Debug\net10.0\Core.deps.json
+C:\Users\user\Desktop\4A.Consulting\Веб-приложение\С регистрацией\LibraryWithUsersWebApp\Core\bin\Debug\net10.0\Core.runtimeconfig.json
+C:\Users\user\Desktop\4A.Consulting\Веб-приложение\С регистрацией\LibraryWithUsersWebApp\Core\bin\Debug\net10.0\Core.dll
+C:\Users\user\Desktop\4A.Consulting\Веб-приложение\С регистрацией\LibraryWithUsersWebApp\Core\bin\Debug\net10.0\Core.pdb
+C:\Users\user\Desktop\4A.Consulting\Веб-приложение\С регистрацией\LibraryWithUsersWebApp\Core\bin\Debug\net10.0\Data.dll
+C:\Users\user\Desktop\4A.Consulting\Веб-приложение\С регистрацией\LibraryWithUsersWebApp\Core\bin\Debug\net10.0\Data.pdb
+C:\Users\user\Desktop\4A.Consulting\Веб-приложение\С регистрацией\LibraryWithUsersWebApp\Core\obj\Debug\net10.0\Core.csproj.AssemblyReference.cache
+C:\Users\user\Desktop\4A.Consulting\Веб-приложение\С регистрацией\LibraryWithUsersWebApp\Core\obj\Debug\net10.0\Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user\Desktop\4A.Consulting\Веб-приложение\С регистрацией\LibraryWithUsersWebApp\Core\obj\Debug\net10.0\Core.AssemblyInfoInputs.cache
+C:\Users\user\Desktop\4A.Consulting\Веб-приложение\С регистрацией\LibraryWithUsersWebApp\Core\obj\Debug\net10.0\Core.AssemblyInfo.cs
+C:\Users\user\Desktop\4A.Consulting\Веб-приложение\С регистрацией\LibraryWithUsersWebApp\Core\obj\Debug\net10.0\Core.csproj.CoreCompileInputs.cache
+C:\Users\user\Desktop\4A.Consulting\Веб-приложение\С регистрацией\LibraryWithUsersWebApp\Core\obj\Debug\net10.0\Core.sourcelink.json
+C:\Users\user\Desktop\4A.Consulting\Веб-приложение\С регистрацией\LibraryWithUsersWebApp\Core\obj\Debug\net10.0\Core.csproj.Up2Date
+C:\Users\user\Desktop\4A.Consulting\Веб-приложение\С регистрацией\LibraryWithUsersWebApp\Core\obj\Debug\net10.0\Core.dll
+C:\Users\user\Desktop\4A.Consulting\Веб-приложение\С регистрацией\LibraryWithUsersWebApp\Core\obj\Debug\net10.0\refint\Core.dll
+C:\Users\user\Desktop\4A.Consulting\Веб-приложение\С регистрацией\LibraryWithUsersWebApp\Core\obj\Debug\net10.0\Core.pdb
+C:\Users\user\Desktop\4A.Consulting\Веб-приложение\С регистрацией\LibraryWithUsersWebApp\Core\obj\Debug\net10.0\Core.genruntimeconfig.cache
+C:\Users\user\Desktop\4A.Consulting\Веб-приложение\С регистрацией\LibraryWithUsersWebApp\Core\obj\Debug\net10.0\ref\Core.dll
