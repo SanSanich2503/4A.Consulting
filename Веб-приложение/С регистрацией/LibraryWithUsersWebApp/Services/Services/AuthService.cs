@@ -38,7 +38,7 @@ public class AuthService : BaseService
 
                 if (user != null)
                 {
-                    await Authenticate(user);
+                    await Authenticate(user, user.Role);
                     
                     return (true, "Вход в систему выполнен успешно");
                 }
@@ -79,7 +79,7 @@ public class AuthService : BaseService
                     var name = model.Name?.Trim() ?? "";
                     var surname = model.Surname?.Trim() ?? "";
                     var patronymic = model.Patronymic?.Trim() ?? "";
-                    var role = _roleRepository.GetAll().FirstOrDefault(x => x.Title == "Покупатель");
+                    var role = _roleRepository.GetAll().FirstOrDefault(x => x.Title == "Читатель");
 
                     if (role != null)
                     {
@@ -91,12 +91,12 @@ public class AuthService : BaseService
                             Surname = surname,
                             Name = name,
                             Patronymic = patronymic,
-                            Role = role,
+                            RoleId = role.Id,
                             Title = $"{surname} {name} {patronymic}".Trim()
                         };
                         await _userRepository.Add(user);
 
-                        await Authenticate(user);
+                        await Authenticate(user, role);
 
                         return (true, "Пользователь успешно зарегистрирован в системе");
                     }
@@ -149,12 +149,12 @@ public class AuthService : BaseService
         return user?.Role.Title?.ToLower() == "админ";
     }
 
-    private async Task Authenticate(User user)
+    private async Task Authenticate(User user, Role role)
     {
         var claims = new List<Claim>
         {
             new Claim(ClaimsIdentity.DefaultNameClaimType, user.UserGuid ?? ""),
-            new Claim(ClaimsIdentity.DefaultRoleClaimType, user.Role.Title ?? "Без роли")
+            new Claim(ClaimsIdentity.DefaultRoleClaimType, role.Title ?? "Без роли")
         };
         
         ClaimsIdentity id = new ClaimsIdentity(claims, "ApplicationCookie", ClaimsIdentity.DefaultNameClaimType, ClaimsIdentity.DefaultRoleClaimType);

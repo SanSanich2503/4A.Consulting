@@ -501,6 +501,8 @@ C:\Users\user\Desktop\4A.Consulting\Веб-приложение\Без реги�
 C:\Users\user\Desktop\4A.Consulting\Веб-приложение\Без регистрации\LibraryWebApp\LibraryWebApp\obj\Debug\net10.0\LibraryWebApp.pdb
 C:\Users\user\Desktop\4A.Consulting\Веб-приложение\Без регистрации\LibraryWebApp\LibraryWebApp\obj\Debug\net10.0\LibraryWebApp.genruntimeconfig.cache
 C:\Users\user\Desktop\4A.Consulting\Веб-приложение\Без регистрации\LibraryWebApp\LibraryWebApp\obj\Debug\net10.0\ref\LibraryWebApp.dll
-C:\Users\user\Desktop\4A.Consulting\Веб-приложение\Без регистрации\LibraryWebApp\LibraryWebApp\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.InMemory.dll
 C:\Users\user\Desktop\4A.Consulting\Веб-приложение\Без регистрации\LibraryWebApp\LibraryWebApp\bin\Debug\net10.0\nunit.framework.dll
 C:\Users\user\Desktop\4A.Consulting\Веб-приложение\Без регистрации\LibraryWebApp\LibraryWebApp\bin\Debug\net10.0\nunit.framework.legacy.dll
+C:\Users\user\Desktop\4A.Consulting\Веб-приложение\Без регистрации\LibraryWebApp\LibraryWebApp\obj\Debug\net10.0\LibraryWebApp.sourcelink.json
+C:\Users\user\Desktop\4A.Consulting\Веб-приложение\Без регистрации\LibraryWebApp\LibraryWebApp\bin\Debug\net10.0\dotnet-tools.json
+C:\Users\user\Desktop\4A.Consulting\Веб-приложение\Без регистрации\LibraryWebApp\LibraryWebApp\bin\Debug\net10.0\libman.json

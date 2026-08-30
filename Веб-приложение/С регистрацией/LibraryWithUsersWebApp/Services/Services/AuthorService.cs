@@ -29,29 +29,36 @@ namespace Services.Services
 
         public async Task<AuthorViewModelList> BuildViewModelList(int pageNumber, int pageSize, string title)
         {
-            var authors = _authorRepository.GetAll().AsAsyncEnumerable();
-            if (!string.IsNullOrWhiteSpace(title))
-                authors = authors
-                    .Where(x => !string.IsNullOrWhiteSpace(x.Title) && x.Title.ToLower().Contains(title.ToLower()));
-
-            var authorsList = await authors.ToListAsync();
-            var count = authorsList.Count;
-            var items = authorsList.Skip((pageNumber - 1) * pageSize).Take(pageSize)
-                .OrderBy(x => x.Title)
-                .Select(x => new AuthorViewModelItem
-                {
-                    Id = x.Id,
-                    Title = x.Title,
-                    Description = x.Description
-                });
-
-            return new AuthorViewModelList
+            try
             {
-                Items = items,
-                PageViewModel = new PageViewModel(count, pageNumber, pageSize),
-                FilterViewModel = new FilterViewModel(title),
-                Count = count
-            };
+                var authors = _authorRepository.GetAll().AsAsyncEnumerable();
+                if (!string.IsNullOrWhiteSpace(title))
+                    authors = authors
+                        .Where(x => !string.IsNullOrWhiteSpace(x.Title) && x.Title.ToLower().Contains(title.ToLower()));
+
+                var authorsList = await authors.ToListAsync();
+                var count = authorsList.Count;
+                var items = authorsList.Skip((pageNumber - 1) * pageSize).Take(pageSize)
+                    .OrderBy(x => x.Title)
+                    .Select(x => new AuthorViewModelItem
+                    {
+                        Id = x.Id,
+                        Title = x.Title,
+                        Description = x.Description
+                    });
+
+                return new AuthorViewModelList
+                {
+                    Items = items,
+                    PageViewModel = new PageViewModel(count, pageNumber, pageSize),
+                    FilterViewModel = new FilterViewModel(title),
+                    Count = count
+                };
+            }
+            catch
+            {
+                return new AuthorViewModelList();
+            }
         }
 
         public async Task<(bool, string)> Create(AuthorForm form)

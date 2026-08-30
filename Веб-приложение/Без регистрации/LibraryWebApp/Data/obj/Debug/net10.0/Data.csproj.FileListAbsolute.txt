@@ -37,3 +37,4 @@ C:\Users\user\Desktop\4A.Consulting\Веб-приложение\Без реги�
 C:\Users\user\Desktop\4A.Consulting\Веб-приложение\Без регистрации\LibraryWebApp\Data\obj\Debug\net10.0\Data.pdb
 C:\Users\user\Desktop\4A.Consulting\Веб-приложение\Без регистрации\LibraryWebApp\Data\obj\Debug\net10.0\Data.genruntimeconfig.cache
 C:\Users\user\Desktop\4A.Consulting\Веб-приложение\Без регистрации\LibraryWebApp\Data\obj\Debug\net10.0\ref\Data.dll
+C:\Users\user\Desktop\4A.Consulting\Веб-приложение\Без регистрации\LibraryWebApp\Data\obj\Debug\net10.0\Data.sourcelink.json

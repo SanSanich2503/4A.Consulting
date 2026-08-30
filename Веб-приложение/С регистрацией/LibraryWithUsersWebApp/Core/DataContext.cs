@@ -2,9 +2,8 @@
 using Core.Entities.Books;
 using Core.Entities.Roles;
 using Core.Entities.Users;
-using Data.Models.AppSettings;
 using Microsoft.EntityFrameworkCore;
-using Newtonsoft.Json;
+using Microsoft.Extensions.Configuration;
 
 namespace Core;
 
@@ -33,27 +32,12 @@ public class DataContext : DbContext
 
     public static string GetConnectionString()
     {
-        var projectName = "LibraryWithUsersWebApp";
-        var connectionString = "";
+        var currentDirectory = Directory.GetCurrentDirectory();
+        var builder = new ConfigurationBuilder()
+            .SetBasePath(Directory.GetCurrentDirectory())
+            .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
+        var config = builder.Build();
 
-        var parentDirectory = Directory.GetCurrentDirectory();
-        for (int i = 0; i < 5; i++)
-        {
-            if (parentDirectory.EndsWith(projectName)
-                && Directory.GetDirectories(parentDirectory).Any(name => name.EndsWith(projectName))) break;
-
-            parentDirectory = Directory.GetParent(parentDirectory)?.FullName ?? "";
-        }
-
-        var settingsFile = @$"{parentDirectory}\{projectName}\appsettings.json";
-
-        if (File.Exists(settingsFile))
-        {
-            var json = File.ReadAllText(settingsFile);
-            var model = JsonConvert.DeserializeObject<AppSettingsModel>(json);
-            connectionString = model?.ConnectionStrings?.DefaultConnection ?? "";
-        }
-
-        return connectionString;
+        return config.GetConnectionString("DefaultConnection") ?? "";
     }
 }

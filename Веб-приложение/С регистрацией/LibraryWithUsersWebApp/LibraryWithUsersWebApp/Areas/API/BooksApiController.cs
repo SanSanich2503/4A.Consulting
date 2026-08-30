@@ -1,4 +1,5 @@
 ﻿using Data.ViewModels.Books;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Services.Services;
 
@@ -6,6 +7,7 @@ namespace LibraryWebApp.Areas.API
 {
     [ApiController]
     [Route("api/Books/[action]")]
+    [Authorize(Roles = "Админ, Читатель")]
     public class BooksApiController : Controller
     {
         private readonly BookService _bookService;

@@ -1,9 +1,11 @@
 ﻿using Data.ViewModels.Authors;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Services.Services;
 
 namespace LibraryWebApp.Controllers
 {
+    [Authorize(Roles = "Админ, Читатель")]
     public class AuthorsController : Controller
     {
         private readonly AuthorService _authorService;

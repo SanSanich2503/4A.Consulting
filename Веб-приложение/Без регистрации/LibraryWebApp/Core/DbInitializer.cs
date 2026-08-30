@@ -6,10 +6,12 @@ namespace Core
     {
         public static async Task Initialize(DataContext context)
         {
-            await CreateAuthors(context);
+            var currentDateTime = DateTime.Now;
+
+            await CreateAuthors(context, currentDateTime);
         }
 
-        private static async Task CreateAuthors(DataContext context)
+        private static async Task CreateAuthors(DataContext context, DateTime currentDateTime)
         {
             if (!context.Authors.Any())
             {
@@ -19,17 +21,20 @@ namespace Core
                     {
                         Title = "Пушкин Александр Сергеевич",
                         Description = "Русский поэт, драматург и прозаик, заложивший основы русского реалистического направления, литературный критик и теоретик литературы, " +
-                        "историк, публицист, журналист, редактор и издатель. Один из самых авторитетных литературных деятелей первой трети XIX века."
+                        "историк, публицист, журналист, редактор и издатель. Один из самых авторитетных литературных деятелей первой трети XIX века.",
+                        LastModified = currentDateTime
                     },
                     new Author
                     {
                         Title = "Толстой Лев Николаевич",
-                        Description = "Один из наиболее известных русских писателей и мыслителей, один из величайших в мире писателей‑романистов."
+                        Description = "Один из наиболее известных русских писателей и мыслителей, один из величайших в мире писателей‑романистов.",
+                        LastModified = currentDateTime
                     },
                     new Author
                     {
                         Title = "Достоевский Фёдор Михайлович",
-                        Description = "Русский писатель, мыслитель, философ и публицист. Член-корреспондент Петербургской академии наук с 1877 года."
+                        Description = "Русский писатель, мыслитель, философ и публицист. Член-корреспондент Петербургской академии наук с 1877 года.",
+                        LastModified = currentDateTime
                     }
                 });
                 await context.SaveChangesAsync();

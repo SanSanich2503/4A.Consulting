@@ -23,5 +23,10 @@ namespace Data.ViewModels.Books
         /// Цена
         /// </summary>
         public double Price { get; set; }
+
+        /// <summary>
+        /// Пользователь
+        /// </summary>
+        public string? User { get; set; }
     }
 }

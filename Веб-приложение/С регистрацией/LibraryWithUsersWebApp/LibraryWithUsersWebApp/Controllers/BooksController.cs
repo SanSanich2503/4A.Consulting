@@ -1,9 +1,11 @@
 ﻿using Data.ViewModels.Books;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Services.Services;
 
 namespace LibraryWebApp.Controllers
 {
+    [Authorize(Roles = "Админ, Читатель")]
     public class BooksController : Controller
     {
         private readonly BookService _bookService;

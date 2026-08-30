@@ -42,78 +42,102 @@ namespace Services.Services
 
         public async Task<BookViewModelList> BuildViewModelList(int pageNumber, int pageSize, string title)
         {
-            var books = _bookRepository.GetAll().AsAsyncEnumerable();
-            if (!string.IsNullOrWhiteSpace(title))
-                books = books
-                    .Where(x => !string.IsNullOrWhiteSpace(x.Title) && x.Title.ToLower().Contains(title.ToLower()));
-
-            var booksList = await books.ToListAsync();
-            var count = booksList.Count;
-            var items = booksList.Skip((pageNumber - 1) * pageSize).Take(pageSize)
-                .OrderBy(x => x.Title)
-                .Select(x => new BookViewModelItem
-                {
-                    Id = x.Id,
-                    Title = x.Title,
-                    Description = x.Description,
-                    Author = x.Author.Title,
-                    Year = x.Year,
-                    Content = x.Content,
-                    Price = x.Price
-                });
-
-            return new BookViewModelList
+            try
             {
-                Items = items,
-                PageViewModel = new PageViewModel(count, pageNumber, pageSize),
-                FilterViewModel = new FilterViewModel(title),
-                Count = count
-            };
+                if (_user != null)
+                {
+                    var books = _user.Role.Title?.ToLower() == "админ"
+                        ? _bookRepository.GetAll().AsAsyncEnumerable()
+                        : _bookRepository.GetByUserId(_user.Id).AsAsyncEnumerable();
+                    if (!string.IsNullOrWhiteSpace(title))
+                        books = books
+                            .Where(x => !string.IsNullOrWhiteSpace(x.Title) && x.Title.ToLower().Contains(title.ToLower()));
+
+                    var booksList = await books.ToListAsync();
+                    var count = booksList.Count;
+                    var items = booksList.Skip((pageNumber - 1) * pageSize).Take(pageSize)
+                        .OrderBy(x => x.Title)
+                        .Select(x => new BookViewModelItem
+                        {
+                            Id = x.Id,
+                            Title = x.Title,
+                            Description = x.Description,
+                            Author = x.Author.Title,
+                            Year = x.Year,
+                            Content = x.Content,
+                            Price = x.Price,
+                            User = x.User.Title
+                        });
+
+                    return new BookViewModelList
+                    {
+                        Items = items,
+                        PageViewModel = new PageViewModel(count, pageNumber, pageSize),
+                        FilterViewModel = new FilterViewModel(title),
+                        Count = count
+                    };
+                }
+
+                return new BookViewModelList();
+            }
+            catch
+            {
+                return new BookViewModelList();
+            }
         }
 
         public async Task<(bool, string)> Create(BookForm form)
         {
             try
             {
-                var book = new Book
+                if (_user != null)
                 {
-                    Title = form.Title,
-                    Description = form.Description,
-                    AuthorId = form.AuthorId,
-                    Year = form.Year,
-                    Content = form.Content,
-                    Price = form.Price,
-                    LastModified = DateTime.Now
-                };
+                    var book = new Book
+                    {
+                        Title = form.Title,
+                        Description = form.Description,
+                        AuthorId = form.AuthorId,
+                        Year = form.Year,
+                        Content = form.Content,
+                        Price = form.Price,
+                        UserId = _user.Id,
+                        LastModified = DateTime.Now
+                    };
 
-                await _bookRepository.Add(book);
+                    await _bookRepository.Add(book);
 
-                return (true, "OK");
+                    return (true, "OK");
+                }
             }
             catch
             {
                 return (false, "Произошла внутренняя ошибка сервера");
             }
+
+            return (false, "Элемент не найден");
         }
 
         public async Task<(bool, string)> Update(BookForm form)
         {
             try
             {
-                var book = _bookRepository.GetById(form.Id).Result;
-                if (book != null)
+                if (_user != null)
                 {
-                    book.Title = form.Title;
-                    book.Description = form.Description;
-                    book.AuthorId = form.AuthorId;
-                    book.Year = form.Year;
-                    book.Content = form.Content;
-                    book.Price = form.Price;
-                    book.LastModified = DateTime.Now;
+                    var book = _bookRepository.GetById(form.Id).Result;
+                    if (book != null)
+                    {
+                        book.Title = form.Title;
+                        book.Description = form.Description;
+                        book.AuthorId = form.AuthorId;
+                        book.Year = form.Year;
+                        book.Content = form.Content;
+                        book.Price = form.Price;
+                        book.LastModified = DateTime.Now;
 
-                    await _bookRepository.Update(book);
+                        await _bookRepository.Update(book);
 
-                    return (true, "OK");
+                        return (true, "OK");
+                    }
                 }
             }
             catch

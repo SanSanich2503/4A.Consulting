@@ -9,7 +9,6 @@
       "LibraryWebApp/1.0.0": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "10.0.11",
-          "Microsoft.EntityFrameworkCore.InMemory": "10.0.11",
           "Microsoft.EntityFrameworkCore.Tools": "10.0.11",
           "NUnit": "4.6.1",
           "Newtonsoft.Json": "13.0.4",
@@ -348,17 +347,6 @@
           }
         }
       },
-      "Microsoft.EntityFrameworkCore.InMemory/10.0.11": {
-        "dependencies": {
-          "Microsoft.EntityFrameworkCore": "10.0.11"
-        },
-        "runtime": {
-          "lib/net10.0/Microsoft.EntityFrameworkCore.InMemory.dll": {
-            "assemblyVersion": "10.0.11.0",
-            "fileVersion": "10.0.1126.37416"
-          }
-        }
-      },
       "Microsoft.EntityFrameworkCore.Relational/10.0.11": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "10.0.11"
@@ -582,7 +570,6 @@
         "dependencies": {
           "Data": "1.0.0",
           "Microsoft.EntityFrameworkCore": "10.0.11",
-          "Microsoft.EntityFrameworkCore.InMemory": "10.0.11",
           "NUnit": "4.6.1",
           "Newtonsoft.Json": "13.0.4",
           "Npgsql.EntityFrameworkCore.PostgreSQL": "10.0.3",
@@ -599,7 +586,6 @@
       "Data/1.0.0": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "10.0.11",
-          "Microsoft.EntityFrameworkCore.InMemory": "10.0.11",
           "NUnit": "4.6.1",
           "Newtonsoft.Json": "13.0.4",
           "Npgsql.EntityFrameworkCore.PostgreSQL": "10.0.3",
@@ -617,7 +603,6 @@
         "dependencies": {
           "Core": "1.0.0",
           "Microsoft.EntityFrameworkCore": "10.0.11",
-          "Microsoft.EntityFrameworkCore.InMemory": "10.0.11",
           "NUnit": "4.6.1",
           "Newtonsoft.Json": "13.0.4",
           "Npgsql.EntityFrameworkCore.PostgreSQL": "10.0.3",
@@ -708,13 +693,6 @@
       "sha512": "sha512-0zlzPs/jtrp2jGNZSxHLd0bRgDB/TlCDT17pnt8hovTVgCmC6qbX1277/goAlnZbRip1mZp1TVjjG+tj9PQ/Uw==",
       "path": "microsoft.entityframeworkcore.design/10.0.11",
       "hashPath": "microsoft.entityframeworkcore.design.10.0.11.nupkg.sha512"
-    },
-    "Microsoft.EntityFrameworkCore.InMemory/10.0.11": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-QBMaEmLIAzUUnH7+1Vbui+9Ui0dSsglkKxjW4sofOHycB3218UrnrUzq+Y75syrR4krUCtY7loWKaVBOeU3qKw==",
-      "path": "microsoft.entityframeworkcore.inmemory/10.0.11",
-      "hashPath": "microsoft.entityframeworkcore.inmemory.10.0.11.nupkg.sha512"
     },
     "Microsoft.EntityFrameworkCore.Relational/10.0.11": {
       "type": "package",

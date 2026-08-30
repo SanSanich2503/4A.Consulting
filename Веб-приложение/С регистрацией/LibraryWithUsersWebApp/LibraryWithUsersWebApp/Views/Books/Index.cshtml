@@ -1,7 +1,12 @@
 ﻿@model BookViewModelList
+@inject UserRepository UserRepository
 
 @{
     ViewData["Title"] = "Книги";
+
+    var userGuid = Context.User.Identity?.Name ?? "";
+    var user = UserRepository.GetCurrentUser(userGuid);
+    var isAdmin = user?.Role.Title?.ToLower() == "админ";
 }
 
 <div center>
@@ -32,6 +37,10 @@
             <th>Год издания</th>
             <th style="width:500px;">Оглавление</th>
             <th>Цена</th>
+            @if (isAdmin)
+            {
+                <th>Пользователь</th>
+            }
             <th></th>
         </tr>
     }
@@ -45,6 +54,10 @@
                 <td>@book.Year</td>
                 <td style="width:500px;text-align:justify;">@book.Content</td>
                 <td>@book.Price</td>
+                @if (isAdmin)
+                {
+                    <td>@book.User</td>
+                }
                 <td>
                     <a asp-controller="Books" asp-action="Update" asp-route-id="@book.Id" class="btn btn-outline-dark">Редактировать</a>
                     <br /><br /><a class="btn btn-danger deleteButton" data-id="@book.Id">Удалить</a>
@@ -84,7 +97,7 @@
     }
 
     th, td {
-        width: 400px;
+        width: 300px;
         border: 3px solid black;
         text-align: center;
     }

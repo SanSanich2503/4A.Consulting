@@ -24,6 +24,12 @@ public class Tests
         Assert.AreEqual(_context.Authors.Any(), true);
     }
 
+    [Test]
+    public void HasUsers()
+    {
+        Assert.AreEqual(_context.Users.Any(), true);
+    }
+
     [TearDown]
     public void TearDown()
     {

@@ -35,33 +35,40 @@ namespace Services.Services
 
         public async Task<BookViewModelList> BuildViewModelList(int pageNumber, int pageSize, string title)
         {
-            var books = _bookRepository.GetAll().AsAsyncEnumerable();
-            if (!string.IsNullOrWhiteSpace(title))
-                books = books
-                    .Where(x => !string.IsNullOrWhiteSpace(x.Title) && x.Title.ToLower().Contains(title.ToLower()));
-
-            var booksList = await books.ToListAsync();
-            var count = booksList.Count;
-            var items = booksList.Skip((pageNumber - 1) * pageSize).Take(pageSize)
-                .OrderBy(x => x.Title)
-                .Select(x => new BookViewModelItem
-                {
-                    Id = x.Id,
-                    Title = x.Title,
-                    Description = x.Description,
-                    Author = x.Author.Title,
-                    Year = x.Year,
-                    Content = x.Content,
-                    Price = x.Price
-                });
-
-            return new BookViewModelList
+            try
             {
-                Items = items,
-                PageViewModel = new PageViewModel(count, pageNumber, pageSize),
-                FilterViewModel = new FilterViewModel(title),
-                Count = count
-            };
+                var books = _bookRepository.GetAll().AsAsyncEnumerable();
+                if (!string.IsNullOrWhiteSpace(title))
+                    books = books
+                        .Where(x => !string.IsNullOrWhiteSpace(x.Title) && x.Title.ToLower().Contains(title.ToLower()));
+
+                var booksList = await books.ToListAsync();
+                var count = booksList.Count;
+                var items = booksList.Skip((pageNumber - 1) * pageSize).Take(pageSize)
+                    .OrderBy(x => x.Title)
+                    .Select(x => new BookViewModelItem
+                    {
+                        Id = x.Id,
+                        Title = x.Title,
+                        Description = x.Description,
+                        Author = x.Author.Title,
+                        Year = x.Year,
+                        Content = x.Content,
+                        Price = x.Price
+                    });
+
+                return new BookViewModelList
+                {
+                    Items = items,
+                    PageViewModel = new PageViewModel(count, pageNumber, pageSize),
+                    FilterViewModel = new FilterViewModel(title),
+                    Count = count
+                };
+            }
+            catch
+            {
+                return new BookViewModelList();
+            }
         }
 
         public async Task<(bool, string)> Create(BookForm form)
