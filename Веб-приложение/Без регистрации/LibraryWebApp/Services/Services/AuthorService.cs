@@ -6,6 +6,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Services.Services
 {
+    /// <summary>
+    /// Сервис для работы с авторами
+    /// </summary>
     public class AuthorService : BaseService
     {
         private readonly AuthorRepository _authorRepository;

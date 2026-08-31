@@ -1,5 +1,8 @@
 ﻿namespace Data.ViewModels
 {
+    /// <summary>
+    /// Класс для фильтрации
+    /// </summary>
     public class FilterViewModel
     {
         public string Title { get; set; } = string.Empty;

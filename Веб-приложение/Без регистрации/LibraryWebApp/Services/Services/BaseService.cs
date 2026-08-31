@@ -3,6 +3,9 @@ using Scrutor.AspNetCore;
 
 namespace Services.Services
 {
+    /// <summary>
+    /// Базовый сервис, имеющий Transient-цикл жизнзи
+    /// </summary>
     public abstract class BaseService : ISelfTransientLifetime
     {
         protected readonly DataContext _context;

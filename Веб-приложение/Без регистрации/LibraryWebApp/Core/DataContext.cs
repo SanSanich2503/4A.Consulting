@@ -5,10 +5,13 @@ using Microsoft.Extensions.Configuration;
 
 namespace Core;
 
+/// <summary>
+/// Класс-контекст базы данных
+/// </summary>
 public class DataContext : DbContext
 {
-    public DbSet<Author> Authors { get; set; }
-    public DbSet<Book> Books { get; set; }
+    public DbSet<Author> Authors { get; set; } // Таблицы авторов (в БД)
+    public DbSet<Book> Books { get; set; } // Таблица книг (в БД)
 
     public DataContext() { }
 
@@ -26,6 +29,10 @@ public class DataContext : DbContext
         });
     }
 
+    /// <summary>
+    /// Получение строки подключения
+    /// </summary>
+    /// <returns></returns>
     public static string GetConnectionString()
     {
         var currentDirectory = Directory.GetCurrentDirectory();

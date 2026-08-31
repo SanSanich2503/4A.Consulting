@@ -2,8 +2,16 @@
 
 namespace Core
 {
+    /// <summary>
+    /// Класс-инициализатор базы данных
+    /// </summary>
     public static class DbInitializer
     {
+        /// <summary>
+        /// Инициализация базы данных
+        /// </summary>
+        /// <param name="context">Контекст базы данных</param>
+        /// <returns></returns>
         public static async Task Initialize(DataContext context)
         {
             var currentDateTime = DateTime.Now;
@@ -11,6 +19,12 @@ namespace Core
             await CreateAuthors(context, currentDateTime);
         }
 
+        /// <summary>
+        /// Создание авторов по умолчанию в базе данных
+        /// </summary>
+        /// <param name="context">Контекст базы данных</param>
+        /// <param name="currentDateTime">Текущая дата и время</param>
+        /// <returns></returns>
         private static async Task CreateAuthors(DataContext context, DateTime currentDateTime)
         {
             if (!context.Authors.Any())

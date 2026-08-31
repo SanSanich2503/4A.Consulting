@@ -2,6 +2,9 @@
 
 namespace Data.ViewModels
 {
+    /// <summary>
+    /// Класс элемента списка
+    /// </summary>
     public class ViewModelItem
     {
         /// <summary>

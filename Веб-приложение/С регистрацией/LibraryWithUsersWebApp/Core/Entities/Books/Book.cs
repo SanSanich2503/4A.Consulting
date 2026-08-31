@@ -5,6 +5,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Core.Entities.Books
 {
+    /// <summary>
+    /// Класс книги
+    /// </summary>
     public class Book : Entity
     {
         /// <summary>

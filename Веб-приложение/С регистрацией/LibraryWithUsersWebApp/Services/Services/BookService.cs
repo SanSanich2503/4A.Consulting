@@ -10,6 +10,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Services.Services
 {
+    /// <summary>
+    /// Сервис для работы с книгами
+    /// </summary>
     public class BookService : BaseService
     {
         private readonly BookRepository _bookRepository;

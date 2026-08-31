@@ -5,6 +5,9 @@ using Services.Services;
 
 namespace LibraryWebApp.Areas.API
 {
+    /// <summary>
+    /// API-контроллер для работы с авторами
+    /// </summary>
     [ApiController]
     [Route("api/Authors/[action]")]
     [Authorize(Roles = "Админ, Читатель")]

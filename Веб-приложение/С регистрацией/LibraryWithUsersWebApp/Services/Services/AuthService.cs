@@ -10,6 +10,9 @@ using Data.ViewModels.Auth;
 
 namespace Services.Services;
 
+/// <summary>
+/// Сервис для работы с аутентификацией и авторизацией пользователей
+/// </summary>
 public class AuthService : BaseService
 {
     private readonly HttpContext _httpContext;

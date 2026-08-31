@@ -1,5 +1,8 @@
 ﻿namespace Data.ViewModels
 {
+    /// <summary>
+    /// Класс для пагинации
+    /// </summary>
     public class PageViewModel
     {
         public int PageNumber { get; set; }

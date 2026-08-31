@@ -4,6 +4,9 @@ using Services.Services;
 
 namespace InternetShopApp.Areas.API;
 
+/// <summary>
+/// API-контроллер для работы с аутентификацией и авторизацией пользователей
+/// </summary>
 [ApiController]
 [Route("api/Auth/[action]")]
 public class AuthApiController : ControllerBase

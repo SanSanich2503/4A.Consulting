@@ -2,6 +2,9 @@
 
 namespace Data.ViewModels
 {
+    /// <summary>
+    /// Абстрактный класс формы
+    /// </summary>
     public abstract class Form
     {
         /// <summary>

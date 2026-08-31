@@ -4,6 +4,9 @@ using Services.Services;
 
 namespace LibraryWebApp.Areas.API
 {
+    /// <summary>
+    /// API-контроллер для работы с авторами
+    /// </summary>
     [ApiController]
     [Route("api/Authors/[action]")]
     public class AuthorsApiController : Controller

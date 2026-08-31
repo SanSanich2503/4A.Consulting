@@ -6,8 +6,16 @@ using System.Text;
 
 namespace Core
 {
+    /// <summary>
+    /// Класс-инициализатор базы данных
+    /// </summary>
     public static class DbInitializer
     {
+        /// <summary>
+        /// Инициализация базы данных
+        /// </summary>
+        /// <param name="context">Контекст базы данных</param>
+        /// <returns></returns>
         public static async Task Initialize(DataContext context)
         {
             var currentDateTime = DateTime.Now;
@@ -17,6 +25,11 @@ namespace Core
             await CreateAuthors(context, currentDateTime);
         }
 
+        /// <summary>
+        /// Хэширование пароля
+        /// </summary>
+        /// <param name="password">Пароль</param>
+        /// <returns></returns>
         public static string HashPassword(string password)
         {
             using var sha256 = SHA256.Create();
@@ -25,6 +38,12 @@ namespace Core
             return BitConverter.ToString(hashedBytes).Replace("-", "").ToLower();
         }
 
+        /// <summary>
+        /// Создание ролей в базе данных
+        /// </summary>
+        /// <param name="context">Контекст базы данных</param>
+        /// <param name="currentDateTime">Текущая дата и время</param>
+        /// <returns></returns>
         private static async Task CreateRoles(DataContext context, DateTime currentDateTime)
         {
             if (!context.Roles.Any())
@@ -48,6 +67,12 @@ namespace Core
             }
         }
 
+        /// <summary>
+        /// Создание пользователей по умолчанию в базе данных
+        /// </summary>
+        /// <param name="context">Контекст базы данных</param>
+        /// <param name="currentDateTime">Текущая дата и время</param>
+        /// <returns></returns>
         private static async Task CreateUsers(DataContext context, DateTime currentDateTime)
         {
             if (!context.Users.Any())
@@ -70,6 +95,12 @@ namespace Core
             }
         }
 
+        /// <summary>
+        /// Создание авторов по умолчанию в базе данных
+        /// </summary>
+        /// <param name="context">Контекст базы данных</param>
+        /// <param name="currentDateTime">Текущая дата и время</param>
+        /// <returns></returns>
         private static async Task CreateAuthors(DataContext context, DateTime currentDateTime)
         {
             if (!context.Authors.Any())

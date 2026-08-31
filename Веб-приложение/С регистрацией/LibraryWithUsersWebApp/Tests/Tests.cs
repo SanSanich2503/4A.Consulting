@@ -3,10 +3,16 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Tests;
 
+/// <summary>
+/// Класс для тестирования приложения
+/// </summary>
 public class Tests
 {
-    private DataContext _context;
+    private DataContext _context; // Контекст базы данных
 
+    /// <summary>
+    /// Метод для инициализации данных
+    /// </summary>
     [SetUp]
     public void Setup()
     {
@@ -18,18 +24,27 @@ public class Tests
         _context = new DataContext(options);
     }
 
+    /// <summary>
+    /// Првоерка наличия авторов в соответствующей таблице базы данных
+    /// </summary>
     [Test]
     public void HasAuthors()
     {
         Assert.AreEqual(_context.Authors.Any(), true);
     }
 
+    /// <summary>
+    /// Првоерка наличия пользователей в соответствующей таблице базы данных
+    /// </summary>
     [Test]
     public void HasUsers()
     {
         Assert.AreEqual(_context.Users.Any(), true);
     }
 
+    /// <summary>
+    /// Удаление объектов из памяти
+    /// </summary>
     [TearDown]
     public void TearDown()
     {
